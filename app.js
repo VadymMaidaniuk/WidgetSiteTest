@@ -17,7 +17,7 @@
  * Allowed origin for postMessage events from the PitchAvatar widget.
  * In production, only messages from this origin will be accepted.
  */
-const ALLOWED_AVATAR_ORIGIN = "https://widget.pitchavatar.com";
+const ALLOWED_AVATAR_ORIGIN = "https://slides-dev.pitchavatar.com";
 
 /**
  * Development flag: when true, allows postMessage from any origin.

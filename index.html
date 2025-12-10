@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>Главная — PitchAvatar Test Site</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <!-- ===== HEADER & NAVIGATION ===== -->
   <header class="site-header">
@@ -30,7 +32,8 @@
 
     <section class="content-section">
       <h2>О проекте</h2>
-      <p>Этот сайт используется для тестирования функции навигации через postMessage API. Используйте панель симуляции ниже или настоящий виджет для отправки команд навигации.</p>
+      <p>Этот сайт используется для тестирования функции навигации через postMessage API. Используйте панель симуляции
+        ниже или настоящий виджет для отправки команд навигации.</p>
       <ul>
         <li><strong>Главная</strong> — текущая страница с описанием проекта</li>
         <li><strong>Отзывы</strong> — страница с отзывами клиентов</li>
@@ -42,29 +45,22 @@
     <!-- ===== AVATAR WIDGET SECTION ===== -->
     <section id="avatar-widget-section">
       <h2>Avatar widget</h2>
-      <!-- 
-        TODO: Здесь нужно вставить реальный embed-код PitchAvatar.
-        Замените div#avatar-widget-placeholder на <iframe> со скриптом виджета.
-        
-        Пример:
-        <iframe 
-          src="https://widget.pitchavatar.com/embed/YOUR_WIDGET_ID" 
-          width="100%" 
-          height="400"
-          frameborder="0"
-          allow="microphone; camera">
+      <!-- PitchAvatar Widget Embed -->
+      <div id="avatar-widget-container">
+        <iframe id="pitchavatar-frame" title="PitchAvatar Presentation" src="https://slides-dev.pitchavatar.com/kivny"
+          frameBorder="no" border="0" cellSpacing="0"
+          allow="autoplay https://slides-dev.pitchavatar.com/; microphone https://slides-dev.pitchavatar.com/; camera https://slides-dev.pitchavatar.com/; clipboard-write https://slides-dev.pitchavatar.com/"
+          width="100%" height="500" scrolling="no" allowFullScreen="" allowtransparency="true">
         </iframe>
-      -->
-      <div id="avatar-widget-placeholder" style="border: 2px dashed #ccc; padding: 24px; text-align: center; border-radius: 8px; background: #f9f9f9;">
-        <p style="margin: 0; color: #666;">📺 Здесь будет iframe с виджетом PitchAvatar.</p>
-        <p style="margin: 8px 0 0; font-size: 0.875rem; color: #999;">Замените этот блок на реальный embed-код</p>
       </div>
     </section>
 
     <!-- ===== SIMULATION SECTION ===== -->
     <section id="simulation-section">
       <h2>🧪 Симуляция виджета</h2>
-      <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например: <code>/pricing.html</code> или <code>testimonials.html</code>)</p>
+      <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например:
+        <code>/pricing.html</code> или <code>testimonials.html</code>)
+      </p>
       <form id="simulation-form" class="simulation-form">
         <input type="text" id="simulation-url" placeholder="/pricing.html" value="/pricing.html">
         <button type="submit" id="simulation-button">Симулировать навигацию</button>
@@ -115,6 +111,8 @@
     </div>
   </div>
 
+  <script src="widget-loader.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
