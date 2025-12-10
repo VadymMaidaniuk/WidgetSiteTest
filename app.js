@@ -191,19 +191,16 @@ window.addEventListener('message', (event) => {
     // ===== 2. MESSAGE STRUCTURE VALIDATION =====
     const data = event.data;
 
-    // Check if data is an object
+    // Check if data is an object - silently ignore non-object messages
+    // (these are often from browser extensions, React DevTools, etc.)
     if (typeof data !== 'object' || data === null) {
-        const errorMsg = 'Неверный формат данных: ожидается объект';
-        logEvent('rejected', event.origin, '', errorMsg);
-        lastError = { timestamp: new Date(), message: errorMsg, origin: event.origin };
-        updateDebugPanel();
-        console.warn('[postMessage] Invalid data format:', data);
+        console.log('[postMessage] Ignoring non-object message:', typeof data);
         return;
     }
 
-    // Check message type
+    // Check message type - silently ignore non-avatar messages
+    // (could be from extensions, analytics, etc.)
     if (data.type !== 'avatar-command') {
-        // Ignore non-avatar messages silently (could be from extensions, etc.)
         console.log('[postMessage] Ignoring non-avatar message type:', data.type);
         return;
     }
