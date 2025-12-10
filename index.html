@@ -1,75 +1,120 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Здоровый Образ Жизни | Главная</title>
-    <meta name="description" content="Блог о здоровом образе жизни, правильном питании, спорте и полезных привычках.">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Тестовый сайт для QA-тестирования навигации через виджет PitchAvatar">
+  <title>Главная — PitchAvatar Test Site</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">🌿 ЗОЖ Блог</a>
-                <div class="nav-links">
-                    <a href="nutrition.html">Питание</a>
-                    <a href="fitness.html">Фитнес</a>
-                    <a href="sleep.html">Сон</a>
-                    <a href="mental.html">Психология</a>
-                    <a href="habits.html">Привычки</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <!-- ===== HEADER & NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="header-content">
+      <a href="index.html" class="site-logo">🎯 PitchAvatar Test</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="testimonials.html">Отзывы</a></li>
+          <li><a href="use-cases-telecom.html">Telecom</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <span class="hero-subtitle">Твой путь к здоровью</span>
-                <h1>Живи полной жизнью</h1>
-                <p>Простые советы для улучшения качества жизни каждый день.</p>
-            </div>
-        </section>
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+    <h1 class="page-title">PitchAvatar Widget Test Site</h1>
+    <p class="page-intro">Добро пожаловать на тестовый сайт для QA-тестирования навигации через виджет PitchAvatar.</p>
 
-        <section class="container">
-            <div class="grid">
-                <a href="nutrition.html" class="card">
-                    <div class="card-icon">🍎</div>
-                    <h3>Правильное Питание</h3>
-                    <p>Основы сбалансированного рациона, полезные рецепты и советы диетологов.</p>
-                </a>
-                <a href="fitness.html" class="card">
-                    <div class="card-icon">💪</div>
-                    <h3>Физическая Активность</h3>
-                    <p>Тренировки для дома и зала, йога, бег и активный отдых.</p>
-                </a>
-                <a href="sleep.html" class="card">
-                    <div class="card-icon">🌙</div>
-                    <h3>Здоровый Сон</h3>
-                    <p>Как наладить режим сна и просыпаться полным сил и энергии.</p>
-                </a>
-                <a href="mental.html" class="card">
-                    <div class="card-icon">🧠</div>
-                    <h3>Психологическое Здоровье</h3>
-                    <p>Медитации, борьба со стрессом и гармония с собой.</p>
-                </a>
-                <a href="habits.html" class="card">
-                    <div class="card-icon">✨</div>
-                    <h3>Полезные Привычки</h3>
-                    <p>Как внедрять новые привычки и избавляться от старых.</p>
-                </a>
-            </div>
-        </section>
-    </main>
+    <section class="content-section">
+      <h2>О проекте</h2>
+      <p>Этот сайт используется для тестирования функции навигации через postMessage API. Используйте панель симуляции ниже или настоящий виджет для отправки команд навигации.</p>
+      <ul>
+        <li><strong>Главная</strong> — текущая страница с описанием проекта</li>
+        <li><strong>Отзывы</strong> — страница с отзывами клиентов</li>
+        <li><strong>Telecom</strong> — кейсы применения в телекоме</li>
+        <li><strong>Pricing</strong> — тарифы и цены</li>
+      </ul>
+    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 ЗОЖ Блог. Сделано с заботой о здоровье.</p>
-        </div>
-    </footer>
+    <!-- ===== AVATAR WIDGET SECTION ===== -->
+    <section id="avatar-widget-section">
+      <h2>Avatar widget</h2>
+      <!-- 
+        TODO: Здесь нужно вставить реальный embed-код PitchAvatar.
+        Замените div#avatar-widget-placeholder на <iframe> со скриптом виджета.
+        
+        Пример:
+        <iframe 
+          src="https://widget.pitchavatar.com/embed/YOUR_WIDGET_ID" 
+          width="100%" 
+          height="400"
+          frameborder="0"
+          allow="microphone; camera">
+        </iframe>
+      -->
+      <div id="avatar-widget-placeholder" style="border: 2px dashed #ccc; padding: 24px; text-align: center; border-radius: 8px; background: #f9f9f9;">
+        <p style="margin: 0; color: #666;">📺 Здесь будет iframe с виджетом PitchAvatar.</p>
+        <p style="margin: 8px 0 0; font-size: 0.875rem; color: #999;">Замените этот блок на реальный embed-код</p>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- ===== SIMULATION SECTION ===== -->
+    <section id="simulation-section">
+      <h2>🧪 Симуляция виджета</h2>
+      <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например: <code>/pricing.html</code> или <code>testimonials.html</code>)</p>
+      <form id="simulation-form" class="simulation-form">
+        <input type="text" id="simulation-url" placeholder="/pricing.html" value="/pricing.html">
+        <button type="submit" id="simulation-button">Симулировать навигацию</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>PitchAvatar Widget Test Site — для QA-тестирования</p>
+  </footer>
+
+  <!-- ===== DEBUG PANEL ===== -->
+  <div id="debug-panel">
+    <div class="debug-header">
+      <h3>🔧 Debug Panel</h3>
+      <div class="debug-toggle-group">
+        <span>Navigation mode:</span>
+        <label>
+          <input type="radio" name="nav-mode" value="reload" checked> Full reload
+        </label>
+        <label>
+          <input type="radio" name="nav-mode" value="spa"> SPA (pushState)
+        </label>
+      </div>
+    </div>
+
+    <div class="debug-info">
+      <div class="debug-info-item">
+        <strong>Current URL</strong>
+        <span id="debug-current-url">—</span>
+      </div>
+      <div class="debug-info-item">
+        <strong>Last Valid Command</strong>
+        <span id="debug-last-command">Нет валидных команд</span>
+      </div>
+      <div class="debug-info-item">
+        <strong>Last Error</strong>
+        <span id="debug-last-error">Нет ошибок</span>
+      </div>
+    </div>
+
+    <div class="debug-event-log">
+      <h4>Event History (newest first)</h4>
+      <ul id="debug-event-list" class="debug-event-list">
+        <!-- Events will be populated by JavaScript -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>

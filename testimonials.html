@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Отзывы клиентов PitchAvatar - тестовая страница">
+    <title>Отзывы — PitchAvatar Test Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="index.html" class="site-logo">🎯 PitchAvatar Test</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="testimonials.html" class="active">Отзывы</a></li>
+                    <li><a href="use-cases-telecom.html">Telecom</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <h1 class="page-title">Отзывы клиентов</h1>
+        <p class="page-intro">Что говорят наши клиенты о PitchAvatar.</p>
+
+        <section class="content-section">
+            <h2>Отзывы</h2>
+            <p>Здесь собраны отзывы от компаний, которые уже используют PitchAvatar для своих презентаций и
+                маркетинговых материалов.</p>
+
+            <blockquote
+                style="border-left: 4px solid #4a6cf7; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555;">
+                "PitchAvatar полностью изменил наш подход к онлайн-презентациям. Виджет работает безупречно, а навигация
+                через API — просто фантастика!"
+                <footer style="font-style: normal; margin-top: 0.5rem; color: #888;">— Иван Петров, TechCorp</footer>
+            </blockquote>
+
+            <blockquote
+                style="border-left: 4px solid #22c55e; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555;">
+                "Мы интегрировали виджет на наш сайт за один день. Команда навигации работает отлично — пользователи
+                довольны."
+                <footer style="font-style: normal; margin-top: 0.5rem; color: #888;">— Анна Смирнова, MediaGroup
+                </footer>
+            </blockquote>
+
+            <blockquote
+                style="border-left: 4px solid #f59e0b; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555;">
+                "Отличный продукт для обучения персонала. Аватар ведёт пользователя по нужным страницам автоматически."
+                <footer style="font-style: normal; margin-top: 0.5rem; color: #888;">— Сергей Козлов, EduPlatform
+                </footer>
+            </blockquote>
+        </section>
+
+        <!-- ===== AVATAR WIDGET SECTION ===== -->
+        <section id="avatar-widget-section">
+            <h2>Avatar widget</h2>
+            <!-- 
+        TODO: Здесь нужно вставить реальный embed-код PitchAvatar.
+        Замените div#avatar-widget-placeholder на <iframe> со скриптом виджета.
+      -->
+            <div id="avatar-widget-placeholder"
+                style="border: 2px dashed #ccc; padding: 24px; text-align: center; border-radius: 8px; background: #f9f9f9;">
+                <p style="margin: 0; color: #666;">📺 Здесь будет iframe с виджетом PitchAvatar.</p>
+                <p style="margin: 8px 0 0; font-size: 0.875rem; color: #999;">Замените этот блок на реальный embed-код
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SIMULATION SECTION ===== -->
+        <section id="simulation-section">
+            <h2>🧪 Симуляция виджета</h2>
+            <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например:
+                <code>/pricing.html</code> или <code>index.html</code>)</p>
+            <form id="simulation-form" class="simulation-form">
+                <input type="text" id="simulation-url" placeholder="/index.html" value="/index.html">
+                <button type="submit" id="simulation-button">Симулировать навигацию</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <p>PitchAvatar Widget Test Site — для QA-тестирования</p>
+    </footer>
+
+    <!-- ===== DEBUG PANEL ===== -->
+    <div id="debug-panel">
+        <div class="debug-header">
+            <h3>🔧 Debug Panel</h3>
+            <div class="debug-toggle-group">
+                <span>Navigation mode:</span>
+                <label>
+                    <input type="radio" name="nav-mode" value="reload" checked> Full reload
+                </label>
+                <label>
+                    <input type="radio" name="nav-mode" value="spa"> SPA (pushState)
+                </label>
+            </div>
+        </div>
+
+        <div class="debug-info">
+            <div class="debug-info-item">
+                <strong>Current URL</strong>
+                <span id="debug-current-url">—</span>
+            </div>
+            <div class="debug-info-item">
+                <strong>Last Valid Command</strong>
+                <span id="debug-last-command">Нет валидных команд</span>
+            </div>
+            <div class="debug-info-item">
+                <strong>Last Error</strong>
+                <span id="debug-last-error">Нет ошибок</span>
+            </div>
+        </div>
+
+        <div class="debug-event-log">
+            <h4>Event History (newest first)</h4>
+            <ul id="debug-event-list" class="debug-event-list">
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

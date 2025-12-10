@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Тарифы и цены PitchAvatar - тестовая страница">
+    <title>Pricing — PitchAvatar Test Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="site-header">
+        <div class="header-content">
+            <a href="index.html" class="site-logo">🎯 PitchAvatar Test</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="testimonials.html">Отзывы</a></li>
+                    <li><a href="use-cases-telecom.html">Telecom</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <h1 class="page-title">Тарифы и цены</h1>
+        <p class="page-intro">Гибкие тарифные планы для любых потребностей.</p>
+
+        <section class="content-section">
+            <h2>Наши тарифы</h2>
+            <p>Выберите план, который подходит вашей компании. От стартапов до крупных enterprise-клиентов.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <!-- Starter Plan -->
+                <div
+                    style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <h3 style="margin: 0 0 0.5rem; color: #16a34a;">Starter</h3>
+                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #166534;">$29<span
+                            style="font-size: 1rem; font-weight: 400;">/мес</span></p>
+                    <ul
+                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
+                        <li>1 аватар</li>
+                        <li>1000 взаимодействий/мес</li>
+                        <li>Базовая аналитика</li>
+                    </ul>
+                </div>
+
+                <!-- Pro Plan -->
+                <div
+                    style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <h3 style="margin: 0 0 0.5rem; color: #2563eb;">Pro</h3>
+                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #1d4ed8;">$99<span
+                            style="font-size: 1rem; font-weight: 400;">/мес</span></p>
+                    <ul
+                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
+                        <li>5 аватаров</li>
+                        <li>10000 взаимодействий/мес</li>
+                        <li>Расширенная аналитика</li>
+                        <li>API доступ</li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div
+                    style="background: #faf5ff; border: 2px solid #a855f7; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <h3 style="margin: 0 0 0.5rem; color: #9333ea;">Enterprise</h3>
+                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #7c3aed;">Custom</p>
+                    <ul
+                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
+                        <li>Неограниченно аватаров</li>
+                        <li>Неограниченно взаимодействий</li>
+                        <li>SLA гарантии</li>
+                        <li>Выделенная поддержка</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AVATAR WIDGET SECTION ===== -->
+        <section id="avatar-widget-section">
+            <h2>Avatar widget</h2>
+            <!-- 
+        TODO: Здесь нужно вставить реальный embed-код PitchAvatar.
+        Замените div#avatar-widget-placeholder на <iframe> со скриптом виджета.
+      -->
+            <div id="avatar-widget-placeholder"
+                style="border: 2px dashed #ccc; padding: 24px; text-align: center; border-radius: 8px; background: #f9f9f9;">
+                <p style="margin: 0; color: #666;">📺 Здесь будет iframe с виджетом PitchAvatar.</p>
+                <p style="margin: 8px 0 0; font-size: 0.875rem; color: #999;">Замените этот блок на реальный embed-код
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SIMULATION SECTION ===== -->
+        <section id="simulation-section">
+            <h2>🧪 Симуляция виджета</h2>
+            <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например:
+                <code>/index.html</code> или <code>testimonials.html</code>)</p>
+            <form id="simulation-form" class="simulation-form">
+                <input type="text" id="simulation-url" placeholder="/index.html" value="/index.html">
+                <button type="submit" id="simulation-button">Симулировать навигацию</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <p>PitchAvatar Widget Test Site — для QA-тестирования</p>
+    </footer>
+
+    <!-- ===== DEBUG PANEL ===== -->
+    <div id="debug-panel">
+        <div class="debug-header">
+            <h3>🔧 Debug Panel</h3>
+            <div class="debug-toggle-group">
+                <span>Navigation mode:</span>
+                <label>
+                    <input type="radio" name="nav-mode" value="reload" checked> Full reload
+                </label>
+                <label>
+                    <input type="radio" name="nav-mode" value="spa"> SPA (pushState)
+                </label>
+            </div>
+        </div>
+
+        <div class="debug-info">
+            <div class="debug-info-item">
+                <strong>Current URL</strong>
+                <span id="debug-current-url">—</span>
+            </div>
+            <div class="debug-info-item">
+                <strong>Last Valid Command</strong>
+                <span id="debug-last-command">Нет валидных команд</span>
+            </div>
+            <div class="debug-info-item">
+                <strong>Last Error</strong>
+                <span id="debug-last-error">Нет ошибок</span>
+            </div>
+        </div>
+
+        <div class="debug-event-log">
+            <h4>Event History (newest first)</h4>
+            <ul id="debug-event-list" class="debug-event-list">
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
