@@ -18,7 +18,7 @@
 
 const WIDGET_CONFIG = {
     // URL виджета PitchAvatar
-    src: "https://slides-dev.pitchavatar.com/kivny",
+    src: "https://slides-dev.pitchavatar.com/yqnxm",
 
     // Высота iframe
     height: 500,
