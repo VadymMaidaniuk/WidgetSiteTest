@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Тестовый сайт для QA-тестирования навигации через виджет PitchAvatar">
-  <title>Главная — PitchAvatar Test Site</title>
+  <meta name="description"
+    content="CryptoMaster Academy — лучшие курсы по криптовалютам и блокчейн-бизнесу. Научись зарабатывать на крипте!">
+  <title>CryptoMaster Academy — Курсы по Криптобизнесу</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -13,106 +14,202 @@
   <!-- ===== HEADER & NAVIGATION ===== -->
   <header class="site-header">
     <div class="header-content">
-      <a href="index.html" class="site-logo">🎯 PitchAvatar Test</a>
+      <a href="index.html" class="site-logo">
+        <span class="logo-icon">₿</span> CryptoMaster
+      </a>
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="courses.html">Курсы</a></li>
+          <li><a href="about.html">О нас</a></li>
           <li><a href="testimonials.html">Отзывы</a></li>
-          <li><a href="use-cases-telecom.html">Telecom</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
         </ul>
       </nav>
+      <button class="menu-toggle" aria-label="Меню">☰</button>
     </div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main class="main-content">
-    <h1 class="page-title">PitchAvatar Widget Test Site</h1>
-    <p class="page-intro">Добро пожаловать на тестовый сайт для QA-тестирования навигации через виджет PitchAvatar.</p>
-
-    <section class="content-section">
-      <h2>О проекте</h2>
-      <p>Этот сайт используется для тестирования функции навигации через postMessage API. Используйте панель симуляции
-        ниже или настоящий виджет для отправки команд навигации.</p>
-      <ul>
-        <li><strong>Главная</strong> — текущая страница с описанием проекта</li>
-        <li><strong>Отзывы</strong> — страница с отзывами клиентов</li>
-        <li><strong>Telecom</strong> — кейсы применения в телекоме</li>
-        <li><strong>Pricing</strong> — тарифы и цены</li>
-      </ul>
-    </section>
-
-    <!-- ===== AVATAR WIDGET SECTION ===== -->
-    <section id="avatar-widget-section">
-      <h2>Avatar widget</h2>
-      <!-- PitchAvatar Widget Embed -->
-      <div id="avatar-widget-container">
-        <iframe id="pitchavatar-frame" title="PitchAvatar Presentation" src="https://slides-dev.pitchavatar.com/kivny"
-          frameBorder="no" border="0" cellSpacing="0"
-          allow="autoplay https://slides-dev.pitchavatar.com/; microphone https://slides-dev.pitchavatar.com/; camera https://slides-dev.pitchavatar.com/; clipboard-write https://slides-dev.pitchavatar.com/"
-          width="100%" height="500" scrolling="no" allowFullScreen="" allowtransparency="true">
-        </iframe>
-      </div>
-    </section>
-
-    <!-- ===== SIMULATION SECTION ===== -->
-    <section id="simulation-section">
-      <h2>🧪 Симуляция виджета</h2>
-      <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например:
-        <code>/pricing.html</code> или <code>testimonials.html</code>)
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <span class="pulse"></span>
+        🔥 Набор открыт — места ограничены
+      </span>
+      <h1>Освой <span class="gradient-text">Криптобизнес</span> и начни зарабатывать</h1>
+      <p class="hero-description">
+        Практические курсы от экспертов рынка. Научись трейдингу, инвестициям и созданию пассивного дохода на
+        криптовалютах.
       </p>
-      <form id="simulation-form" class="simulation-form">
-        <input type="text" id="simulation-url" placeholder="/pricing.html" value="/pricing.html">
-        <button type="submit" id="simulation-button">Симулировать навигацию</button>
-      </form>
-    </section>
-  </main>
+      <div class="hero-buttons">
+        <a href="courses.html" class="btn btn-primary">
+          🚀 Смотреть курсы
+        </a>
+        <a href="about.html" class="btn btn-secondary">
+          О менторе
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS SECTION ===== -->
+  <section class="stats">
+    <div class="stat-card">
+      <div class="stat-number">12,500+</div>
+      <div class="stat-label">Студентов обучено</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">15</div>
+      <div class="stat-label">Практических курсов</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Часов контента</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">94%</div>
+      <div class="stat-label">Довольных студентов</div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES SECTION ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Почему <span class="gradient-text">CryptoMaster</span>?</h2>
+      <p class="section-subtitle">Мы не просто учим теории — мы даём практические инструменты для заработка</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Практика с первого дня</h3>
+        <p>Реальные кейсы и стратегии, которые работают на рынке прямо сейчас. Никакой воды.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Персональный ментор</h3>
+        <p>Индивидуальная поддержка и разбор ваших сделок от опытных трейдеров.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>Сообщество</h3>
+        <p>Закрытый чат с единомышленниками, сигналы и аналитика рынка в реальном времени.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Пожизненный доступ</h3>
+        <p>Один раз оплатил — получаешь доступ навсегда, включая все обновления.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Гарантия результата</h3>
+        <p>Если не выйдешь в плюс за 30 дней — вернём деньги без лишних вопросов.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Учись откуда угодно</h3>
+        <p>Все материалы доступны 24/7. Учись в своём темпе с любого устройства.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COURSES PREVIEW ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Популярные <span class="gradient-text">курсы</span></h2>
+      <p class="section-subtitle">Выбери свой путь в мир криптовалют</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-image">🎓</div>
+        <div class="course-content">
+          <span class="course-badge">Для новичков</span>
+          <h3>Основы криптовалют</h3>
+          <p>С нуля до первых сделок. Всё, что нужно знать для старта в крипте.</p>
+          <div class="course-meta">
+            <span class="course-price">$199</span>
+            <span class="course-duration">⏱ 24 часа</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">📊</div>
+        <div class="course-content">
+          <span class="course-badge">Трейдинг</span>
+          <h3>Профессиональный трейдинг</h3>
+          <p>Технический анализ, стратегии и риск-менеджмент для стабильной прибыли.</p>
+          <div class="course-meta">
+            <span class="course-price"><span class="old-price">$599</span>$399</span>
+            <span class="course-duration">⏱ 40 часов</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">💎</div>
+        <div class="course-content">
+          <span class="course-badge">DeFi</span>
+          <h3>DeFi Мастер</h3>
+          <p>Пассивный доход через DeFi протоколы. Стейкинг, фарминг, ликвидность.</p>
+          <div class="course-meta">
+            <span class="course-price">$299</span>
+            <span class="course-duration">⏱ 18 часов</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="courses.html" class="btn btn-primary">Все курсы →</a>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Готов начать <span class="gradient-text">зарабатывать</span>?</h2>
+      <p>Присоединяйся к 12,500+ успешных студентов. Первые результаты уже через неделю!</p>
+      <a href="pricing.html" class="btn btn-gold">🔥 Выбрать тариф</a>
+    </div>
+  </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <p>PitchAvatar Widget Test Site — для QA-тестирования</p>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <span class="logo-icon">₿</span> CryptoMaster
+        </a>
+        <p>Лучшие курсы по криптовалютам и блокчейн-бизнесу. Учим зарабатывать на крипте с 2019 года.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Курсы</h4>
+        <ul>
+          <li><a href="courses.html">Все курсы</a></li>
+          <li><a href="courses.html">Для новичков</a></li>
+          <li><a href="courses.html">Трейдинг</a></li>
+          <li><a href="courses.html">DeFi</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="testimonials.html">Отзывы</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CryptoMaster Academy. Все права защищены.</p>
+    </div>
   </footer>
-
-  <!-- ===== DEBUG PANEL ===== -->
-  <div id="debug-panel">
-    <div class="debug-header">
-      <h3>🔧 Debug Panel</h3>
-      <div class="debug-toggle-group">
-        <span>Navigation mode:</span>
-        <label>
-          <input type="radio" name="nav-mode" value="reload" checked> Full reload
-        </label>
-        <label>
-          <input type="radio" name="nav-mode" value="spa"> SPA (pushState)
-        </label>
-      </div>
-    </div>
-
-    <div class="debug-info">
-      <div class="debug-info-item">
-        <strong>Current URL</strong>
-        <span id="debug-current-url">—</span>
-      </div>
-      <div class="debug-info-item">
-        <strong>Last Valid Command</strong>
-        <span id="debug-last-command">Нет валидных команд</span>
-      </div>
-      <div class="debug-info-item">
-        <strong>Last Error</strong>
-        <span id="debug-last-error">Нет ошибок</span>
-      </div>
-    </div>
-
-    <div class="debug-event-log">
-      <h4>Event History (newest first)</h4>
-      <ul id="debug-event-list" class="debug-event-list">
-        <!-- Events will be populated by JavaScript -->
-      </ul>
-    </div>
-  </div>
-
-  <script src="widget-loader.js"></script>
-  <script src="app.js"></script>
 </body>
 
 </html>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Тарифы и цены PitchAvatar - тестовая страница">
-    <title>Pricing — PitchAvatar Test Site</title>
+    <meta name="description" content="Тарифы CryptoMaster Academy — выбери свой пакет обучения криптовалютам">
+    <title>Тарифы — CryptoMaster Academy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -13,144 +13,326 @@
     <!-- ===== HEADER & NAVIGATION ===== -->
     <header class="site-header">
         <div class="header-content">
-            <a href="index.html" class="site-logo">🎯 PitchAvatar Test</a>
+            <a href="index.html" class="site-logo">
+                <span class="logo-icon">₿</span> CryptoMaster
+            </a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Главная</a></li>
+                    <li><a href="courses.html">Курсы</a></li>
+                    <li><a href="about.html">О нас</a></li>
                     <li><a href="testimonials.html">Отзывы</a></li>
-                    <li><a href="use-cases-telecom.html">Telecom</a></li>
-                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="pricing.html" class="active">Тарифы</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" aria-label="Меню">☰</button>
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content">
-        <h1 class="page-title">Тарифы и цены</h1>
-        <p class="page-intro">Гибкие тарифные планы для любых потребностей.</p>
-
-        <section class="content-section">
-            <h2>Наши тарифы</h2>
-            <p>Выберите план, который подходит вашей компании. От стартапов до крупных enterprise-клиентов.</p>
-
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                <!-- Starter Plan -->
-                <div
-                    style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; padding: 1.5rem; text-align: center;">
-                    <h3 style="margin: 0 0 0.5rem; color: #16a34a;">Starter</h3>
-                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #166534;">$29<span
-                            style="font-size: 1rem; font-weight: 400;">/мес</span></p>
-                    <ul
-                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
-                        <li>1 аватар</li>
-                        <li>1000 взаимодействий/мес</li>
-                        <li>Базовая аналитика</li>
-                    </ul>
-                </div>
-
-                <!-- Pro Plan -->
-                <div
-                    style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center;">
-                    <h3 style="margin: 0 0 0.5rem; color: #2563eb;">Pro</h3>
-                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #1d4ed8;">$99<span
-                            style="font-size: 1rem; font-weight: 400;">/мес</span></p>
-                    <ul
-                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
-                        <li>5 аватаров</li>
-                        <li>10000 взаимодействий/мес</li>
-                        <li>Расширенная аналитика</li>
-                        <li>API доступ</li>
-                    </ul>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div
-                    style="background: #faf5ff; border: 2px solid #a855f7; border-radius: 12px; padding: 1.5rem; text-align: center;">
-                    <h3 style="margin: 0 0 0.5rem; color: #9333ea;">Enterprise</h3>
-                    <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #7c3aed;">Custom</p>
-                    <ul
-                        style="text-align: left; padding-left: 1rem; margin-top: 1rem; font-size: 0.875rem; color: #555;">
-                        <li>Неограниченно аватаров</li>
-                        <li>Неограниченно взаимодействий</li>
-                        <li>SLA гарантии</li>
-                        <li>Выделенная поддержка</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== AVATAR WIDGET SECTION ===== -->
-        <section id="avatar-widget-section">
-            <h2>Avatar widget</h2>
-            <!-- PitchAvatar Widget Embed -->
-            <div id="avatar-widget-container">
-                <iframe id="pitchavatar-frame" title="PitchAvatar Presentation"
-                    src="https://slides-dev.pitchavatar.com/kivny" frameBorder="no" border="0" cellSpacing="0"
-                    allow="autoplay https://slides-dev.pitchavatar.com/; microphone https://slides-dev.pitchavatar.com/; camera https://slides-dev.pitchavatar.com/; clipboard-write https://slides-dev.pitchavatar.com/"
-                    width="100%" height="500" scrolling="no" allowFullScreen="" allowtransparency="true">
-                </iframe>
-            </div>
-        </section>
-
-        <!-- ===== SIMULATION SECTION ===== -->
-        <section id="simulation-section">
-            <h2>🧪 Симуляция виджета</h2>
-            <p class="simulation-hint">Введите URL для симуляции команды навигации от виджета (например:
-                <code>/index.html</code> или <code>testimonials.html</code>)
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" style="min-height: 50vh; padding-top: 10rem;">
+        <div class="hero-content">
+            <span class="hero-badge">
+                <span class="pulse"></span>
+                🔥 Скидка 40% до конца месяца
+            </span>
+            <h1>Выбери свой <span class="gradient-text">тариф</span></h1>
+            <p class="hero-description">
+                От самостоятельного обучения до VIP-менторинга. Найди идеальный вариант для себя.
             </p>
-            <form id="simulation-form" class="simulation-form">
-                <input type="text" id="simulation-url" placeholder="/index.html" value="/index.html">
-                <button type="submit" id="simulation-button">Симулировать навигацию</button>
-            </form>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section class="section">
+        <div class="pricing-grid">
+            <!-- BASIC PLAN -->
+            <div class="pricing-card">
+                <div class="pricing-icon">🎓</div>
+                <h3>Basic</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">Самостоятельное обучение</p>
+                <div class="price">$299<span>/единоразово</span></div>
+                <ul class="pricing-features">
+                    <li><span class="check">✓</span> Доступ к 5 базовым курсам</li>
+                    <li><span class="check">✓</span> 60+ часов видеоконтента</li>
+                    <li><span class="check">✓</span> Презентации и материалы</li>
+                    <li><span class="check">✓</span> Доступ к общему чату</li>
+                    <li><span class="cross">✕</span> Персональный ментор</li>
+                    <li><span class="cross">✕</span> Торговые сигналы</li>
+                    <li><span class="cross">✕</span> Разбор сделок</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%;">Выбрать Basic</a>
+            </div>
+
+            <!-- PRO PLAN -->
+            <div class="pricing-card featured">
+                <div class="pricing-icon">🚀</div>
+                <h3>Pro</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">Обучение с поддержкой</p>
+                <div class="price">$599<span>/единоразово</span></div>
+                <ul class="pricing-features">
+                    <li><span class="check">✓</span> Все курсы академии (15+)</li>
+                    <li><span class="check">✓</span> 200+ часов видеоконтента</li>
+                    <li><span class="check">✓</span> Все материалы и шаблоны</li>
+                    <li><span class="check">✓</span> Закрытый VIP-чат</li>
+                    <li><span class="check">✓</span> Групповой менторинг (2 раза/нед)</li>
+                    <li><span class="check">✓</span> Торговые сигналы</li>
+                    <li><span class="cross">✕</span> Персональный разбор сделок</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Выбрать Pro</a>
+            </div>
+
+            <!-- VIP PLAN -->
+            <div class="pricing-card">
+                <div class="pricing-icon">👑</div>
+                <h3>VIP</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">Персональный менторинг</p>
+                <div class="price">$1,499<span>/единоразово</span></div>
+                <ul class="pricing-features">
+                    <li><span class="check">✓</span> Всё из тарифа Pro</li>
+                    <li><span class="check">✓</span> Персональный ментор</li>
+                    <li><span class="check">✓</span> Еженедельные 1-на-1 созвоны</li>
+                    <li><span class="check">✓</span> Разбор ваших сделок</li>
+                    <li><span class="check">✓</span> Индивидуальная стратегия</li>
+                    <li><span class="check">✓</span> Приоритетная поддержка 24/7</li>
+                    <li><span class="check">✓</span> Пожизненные обновления</li>
+                </ul>
+                <a href="#" class="btn btn-gold" style="width: 100%;">Выбрать VIP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GUARANTEE SECTION ===== -->
+    <section class="section" style="background: rgba(16, 185, 129, 0.05);">
+        <div class="features-grid" style="max-width: 900px;">
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-icon" style="background: rgba(16, 185, 129, 0.15); margin: 0 auto 1.5rem;">🛡️</div>
+                <h3>30-дневная гарантия</h3>
+                <p>Если в течение 30 дней ты решишь, что курсы не для тебя — вернём 100% оплаты без лишних вопросов.</p>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-icon" style="background: rgba(139, 92, 246, 0.15); margin: 0 auto 1.5rem;">♾️</div>
+                <h3>Пожизненный доступ</h3>
+                <p>Оплатил один раз — учись всегда. Все обновления курсов бесплатны навсегда.</p>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-icon" style="background: rgba(245, 158, 11, 0.15); margin: 0 auto 1.5rem;">💳</div>
+                <h3>Рассрочка 0%</h3>
+                <p>Можно оплатить в рассрочку без процентов на 3-6 месяцев. Начни учиться сейчас!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARISON TABLE ===== -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Сравнение <span class="gradient-text">тарифов</span></h2>
+            <p class="section-subtitle">Выбери то, что подходит именно тебе</p>
+        </div>
+        <div style="max-width: 900px; margin: 0 auto; overflow-x: auto;">
+            <table
+                style="width: 100%; border-collapse: collapse; background: var(--gradient-card); border-radius: var(--radius-lg); overflow: hidden;">
+                <thead>
+                    <tr style="background: rgba(139, 92, 246, 0.1);">
+                        <th style="padding: 1.5rem; text-align: left; border-bottom: var(--border-subtle);">Возможности
+                        </th>
+                        <th style="padding: 1.5rem; text-align: center; border-bottom: var(--border-subtle);">Basic</th>
+                        <th
+                            style="padding: 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.1);">
+                            Pro</th>
+                        <th style="padding: 1.5rem; text-align: center; border-bottom: var(--border-subtle);">VIP</th>
+                    </tr>
+                </thead>
+                <tbody style="color: var(--color-text-secondary);">
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Количество курсов</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">5
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            15+</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">15+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Часов контента</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">60+
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            200+</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">200+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Закрытый чат</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">Общий
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            VIP</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">VIP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Торговые сигналы</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">❌
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            ✅</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">✅
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Групповой менторинг</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">❌
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            2 раза/нед</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">2
+                            раза/нед</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem; border-bottom: var(--border-subtle);">Персональный ментор</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">❌
+                        </td>
+                        <td
+                            style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle); background: rgba(139, 92, 246, 0.05);">
+                            ❌</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; border-bottom: var(--border-subtle);">✅
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem 1.5rem;">Разбор сделок 1-на-1</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center;">❌</td>
+                        <td style="padding: 1rem 1.5rem; text-align: center; background: rgba(139, 92, 246, 0.05);">❌
+                        </td>
+                        <td style="padding: 1rem 1.5rem; text-align: center;">✅</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section" style="background: rgba(139, 92, 246, 0.05);">
+        <div class="section-header">
+            <h2 class="section-title">Частые <span class="gradient-text">вопросы</span></h2>
+            <p class="section-subtitle">Ответы на популярные вопросы о наших курсах</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Подходят ли курсы для новичков?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Да! У нас есть курсы для любого уровня. Начните с "Криптовалюты с нуля" — там всё объясняется
+                    простым языком с самых основ.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Как долго сохраняется доступ к курсам?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Навсегда! Оплатив один раз, вы получаете пожизненный доступ ко всем материалам, включая
+                    будущие обновления и дополнения.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Можно ли оплатить криптовалютой?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Конечно! Мы принимаем BTC, ETH, USDT и другие популярные криптовалюты. Напишите нам в Telegram
+                    для получения реквизитов.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Что если курсы мне не подойдут?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    У нас есть 30-дневная гарантия возврата денег. Если по какой-либо причине курсы вам не подойдут —
+                    просто напишите нам и мы вернём 100% оплаты.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Сколько времени нужно уделять обучению?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Рекомендуем 1-2 часа в день. Но вы можете учиться в своём темпе — все материалы доступны 24/7.
+                    Большинство студентов проходят базовый курс за 2-4 недели.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Есть ли рассрочка?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Да! Мы предлагаем рассрочку без процентов на 3-6 месяцев. Свяжитесь с нами для оформления.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Остались <span class="gradient-text">вопросы</span>?</h2>
+            <p>Напишите нам в Telegram и получите бесплатную консультацию</p>
+            <a href="#" class="btn btn-gold">💬 Написать в Telegram</a>
+        </div>
+    </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
-        <p>PitchAvatar Widget Test Site — для QA-тестирования</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">₿</span> CryptoMaster
+                </a>
+                <p>Лучшие курсы по криптовалютам и блокчейн-бизнесу. Учим зарабатывать на крипте с 2019 года.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Курсы</h4>
+                <ul>
+                    <li><a href="courses.html">Все курсы</a></li>
+                    <li><a href="courses.html">Для новичков</a></li>
+                    <li><a href="courses.html">Трейдинг</a></li>
+                    <li><a href="courses.html">DeFi</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="testimonials.html">Отзывы</a></li>
+                    <li><a href="pricing.html">Тарифы</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 CryptoMaster Academy. Все права защищены.</p>
+        </div>
     </footer>
-
-    <!-- ===== DEBUG PANEL ===== -->
-    <div id="debug-panel">
-        <div class="debug-header">
-            <h3>🔧 Debug Panel</h3>
-            <div class="debug-toggle-group">
-                <span>Navigation mode:</span>
-                <label>
-                    <input type="radio" name="nav-mode" value="reload" checked> Full reload
-                </label>
-                <label>
-                    <input type="radio" name="nav-mode" value="spa"> SPA (pushState)
-                </label>
-            </div>
-        </div>
-
-        <div class="debug-info">
-            <div class="debug-info-item">
-                <strong>Current URL</strong>
-                <span id="debug-current-url">—</span>
-            </div>
-            <div class="debug-info-item">
-                <strong>Last Valid Command</strong>
-                <span id="debug-last-command">Нет валидных команд</span>
-            </div>
-            <div class="debug-info-item">
-                <strong>Last Error</strong>
-                <span id="debug-last-error">Нет ошибок</span>
-            </div>
-        </div>
-
-        <div class="debug-event-log">
-            <h4>Event History (newest first)</h4>
-            <ul id="debug-event-list" class="debug-event-list">
-            </ul>
-        </div>
-    </div>
-
-    <script src="widget-loader.js"></script>
-    <script src="app.js"></script>
 </body>
 
 </html>
