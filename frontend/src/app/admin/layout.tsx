@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import './admin.css'
+import '../admin.css'
 
 export default function AdminLayout({
   children,
@@ -11,9 +11,16 @@ export default function AdminLayout({
   children: React.ReactNode
 }) {
   const [loading, setLoading] = useState(true)
+  const pathname = usePathname()
   const router = useRouter()
+  const isLoginPage = pathname === '/admin/login'
 
   useEffect(() => {
+    if (isLoginPage) {
+      setLoading(false)
+      return
+    }
+
     const token = localStorage.getItem('admin_token')
     if (!token) {
       router.push('/admin/login')
@@ -38,7 +45,11 @@ export default function AdminLayout({
         localStorage.removeItem('admin_token')
         router.push('/admin/login')
       })
-  }, [router])
+  }, [isLoginPage, router])
+
+  if (isLoginPage) {
+    return <>{children}</>
+  }
 
   const handleLogout = () => {
     localStorage.removeItem('admin_token')

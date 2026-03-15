@@ -4,8 +4,16 @@ import PostCard from '@/components/PostCard'
 import { getPosts, getCategories } from '@/lib/api'
 
 export default async function HomePage() {
-  const posts = await getPosts(1, 3)
-  const categories = await getCategories()
+  const [posts, categories] = await Promise.all([
+    getPosts(1, 3).catch(() => ({
+      posts: [],
+      total: 0,
+      page: 1,
+      page_size: 3,
+      total_pages: 0,
+    })),
+    getCategories().catch(() => []),
+  ])
 
   return (
     <>

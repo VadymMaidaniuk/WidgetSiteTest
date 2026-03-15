@@ -78,7 +78,7 @@ export default function AdminLoginPage() {
         </form>
 
         <div className="admin-login-footer">
-          <p>Default credentials:</p>
+          <p>Данные по умолчанию:</p>
           <code>admin@cryptomaster.com / admin123</code>
         </div>
       </div>

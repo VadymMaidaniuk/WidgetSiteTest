@@ -3,9 +3,9 @@ from sqlalchemy import func, or_
 from typing import Optional, List
 from datetime import datetime
 
-from models import Post, Category, Tag, User, PostStatus, post_tags
-from schemas import PostCreate, PostUpdate, CategoryCreate, TagCreate
-from auth import get_password_hash
+from .models import Post, Category, Tag, User, PostStatus
+from .schemas import PostCreate, PostUpdate, CategoryCreate, TagCreate
+from .auth import get_password_hash
 
 
 # ===== User CRUD =====

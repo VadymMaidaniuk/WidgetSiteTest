@@ -9,10 +9,13 @@ export default function AdminCategoriesPage() {
   const [newCategory, setNewCategory] = useState({ name: '', slug: '' })
   const [saving, setSaving] = useState(false)
 
-  const token = localStorage.getItem('admin_token')
+  const token = typeof window === 'undefined' ? null : window.localStorage.getItem('admin_token')
 
   useEffect(() => {
-    if (!token) return
+    if (!token) {
+      setLoading(false)
+      return
+    }
 
     getCategories()
       .then(data => {
@@ -74,7 +77,7 @@ export default function AdminCategoriesPage() {
           />
           <input
             type="text"
-            placeholder="Slug (url)"
+            placeholder="Слаг (URL)"
             value={newCategory.slug}
             onChange={(e) => setNewCategory({ ...newCategory, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
             required

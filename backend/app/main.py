@@ -1,8 +1,7 @@
-from fastapi import FastAPI, Depends, HTTPException, status, UploadFile, File, Form, Query
+from fastapi import FastAPI, Depends, HTTPException, status, UploadFile, File, Query
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import datetime
@@ -11,16 +10,16 @@ import uuid
 import shutil
 from dotenv import load_dotenv
 
-from database import engine, get_db, Base
-from models import User, Post, Category, Tag, PostStatus
-from schemas import (
-    LoginRequest, Token, UserCreate, User as UserSchema,
+from .database import engine, get_db, Base
+from .models import User, PostStatus
+from .schemas import (
+    LoginRequest, Token, User as UserSchema,
     PostCreate, PostUpdate, Post as PostSchema, PostListResponse,
     CategoryCreate, Category as CategorySchema,
     TagCreate, Tag as TagSchema
 )
-from auth import verify_password, create_access_token, decode_access_token, get_password_hash
-import crud
+from .auth import verify_password, create_access_token, decode_access_token
+from . import crud
 
 load_dotenv()
 
@@ -35,7 +34,7 @@ def create_initial_admin(db: Session):
     existing_admin = crud.get_user_by_email(db, admin_email)
     if not existing_admin:
         crud.create_admin_user(db, admin_email, admin_password)
-        print(f"✅ Admin user created: {admin_email}")
+        print(f"Admin user created: {admin_email}")
 
 # ===== FastAPI App =====
 app = FastAPI(
@@ -75,7 +74,7 @@ async def get_current_user(
     if payload is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid authentication credentials",
+            detail="Неверные данные авторизации",
             headers={"WWW-Authenticate": "Bearer"},
         )
     
@@ -83,14 +82,14 @@ async def get_current_user(
     if email is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid authentication credentials",
+            detail="Неверные данные авторизации",
         )
     
     user = crud.get_user_by_email(db, email)
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="User not found",
+            detail="Пользователь не найден",
         )
     
     return user
@@ -99,8 +98,12 @@ async def get_current_user(
 # ===== Инициализация при старте =====
 @app.on_event("startup")
 async def startup_event():
-    db = next(get_db())
-    create_initial_admin(db)
+    db_generator = get_db()
+    db = next(db_generator)
+    try:
+        create_initial_admin(db)
+    finally:
+        db.close()
 
 
 # ===== Public Endpoints =====
@@ -145,7 +148,7 @@ def get_post(slug: str, db: Session = Depends(get_db)):
     """Получить пост по slug"""
     post = crud.get_post_by_slug(db, slug, PostStatus.PUBLISHED)
     if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
+        raise HTTPException(status_code=404, detail="Статья не найдена")
     return post
 
 
@@ -171,7 +174,7 @@ def login(login_data: LoginRequest, db: Session = Depends(get_db)):
     if not user or not verify_password(login_data.password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password",
+            detail="Неверный email или пароль",
         )
     
     access_token = create_access_token(data={"sub": user.email})
@@ -206,7 +209,7 @@ def update_post(
     """Обновить пост"""
     updated_post = crud.update_post(db, post_id, post)
     if not updated_post:
-        raise HTTPException(status_code=404, detail="Post not found")
+        raise HTTPException(status_code=404, detail="Статья не найдена")
     return updated_post
 
 
@@ -219,8 +222,8 @@ def delete_post(
     """Удалить пост"""
     success = crud.delete_post(db, post_id)
     if not success:
-        raise HTTPException(status_code=404, detail="Post not found")
-    return {"message": "Post deleted successfully"}
+        raise HTTPException(status_code=404, detail="Статья не найдена")
+    return {"message": "Статья удалена"}
 
 
 @app.get("/api/admin/posts", response_model=PostListResponse)
@@ -254,7 +257,7 @@ def get_admin_post(
     """Получить пост по ID (для админа)"""
     post = crud.get_post_by_id(db, post_id)
     if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
+        raise HTTPException(status_code=404, detail="Статья не найдена")
     return post
 
 
@@ -279,8 +282,8 @@ def delete_category(
     """Удалить категорию"""
     success = crud.delete_category(db, category_id)
     if not success:
-        raise HTTPException(status_code=404, detail="Category not found")
-    return {"message": "Category deleted successfully"}
+        raise HTTPException(status_code=404, detail="Категория не найдена")
+    return {"message": "Категория удалена"}
 
 
 # ===== Tag Admin Endpoints =====
@@ -304,8 +307,8 @@ def delete_tag(
     """Удалить тег"""
     success = crud.delete_tag(db, tag_id)
     if not success:
-        raise HTTPException(status_code=404, detail="Tag not found")
-    return {"message": "Tag deleted successfully"}
+        raise HTTPException(status_code=404, detail="Тег не найден")
+    return {"message": "Тег удален"}
 
 
 # ===== File Upload =====
@@ -321,7 +324,7 @@ async def upload_image(
     if file.content_type not in allowed_types:
         raise HTTPException(
             status_code=400,
-            detail=f"File type not allowed. Allowed types: {', '.join(allowed_types)}"
+            detail=f"Недопустимый тип файла. Разрешены: {', '.join(allowed_types)}"
         )
     
     # Генерация уникального имени файла
@@ -334,7 +337,7 @@ async def upload_image(
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to save file: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Не удалось сохранить файл: {str(e)}")
     
     # Возвращаем URL для доступа к файлу
     return {

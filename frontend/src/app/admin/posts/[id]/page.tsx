@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
+import NextImage from 'next/image'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import Image from '@tiptap/extension-image'
+import ImageExtension from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
 import { getAdminPost, updatePost, createPost, uploadImage, getCategories, getTags } from '@/lib/api'
 
@@ -13,6 +14,8 @@ export default function EditPostPage() {
   const params = useParams()
   const postId = params.id as string
   const isEdit = postId !== 'new'
+  const token = typeof window === 'undefined' ? null : window.localStorage.getItem('admin_token')
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
   const [loading, setLoading] = useState(isEdit)
   const [saving, setSaving] = useState(false)
@@ -32,12 +35,10 @@ export default function EditPostPage() {
     status: 'draft' as 'draft' | 'published',
   })
 
-  const token = localStorage.getItem('admin_token')
-
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Image,
+      ImageExtension,
       Link.configure({
         openOnClick: false,
         HTMLAttributes: {
@@ -79,7 +80,7 @@ export default function EditPostPage() {
             cover_image: post.cover_image || '',
             seo_title: post.seo_title || '',
             seo_description: post.seo_description || '',
-            category_id: post.category_id || null,
+            category_id: post.category_id ?? post.category?.id ?? null,
             tag_ids: post.tags.map(t => t.id),
             status: post.status,
           })
@@ -146,8 +147,9 @@ export default function EditPostPage() {
     <div className="edit-post-page">
       <div className="admin-header">
         <h1>{isEdit ? 'Редактировать статью' : 'Новая статья'}</h1>
-        <button 
-          onClick={handleSubmit} 
+        <button
+          type="submit"
+          form="edit-post-form"
           className="btn btn-primary"
           disabled={saving}
         >
@@ -155,7 +157,7 @@ export default function EditPostPage() {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="edit-post-form">
+      <form id="edit-post-form" onSubmit={handleSubmit} className="edit-post-form">
         {/* Main Content */}
         <div className="edit-post-main">
           <div className="form-group">
@@ -171,14 +173,14 @@ export default function EditPostPage() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="slug">Slug (URL) *</label>
+            <label htmlFor="slug">Слаг (URL) *</label>
             <input
               id="slug"
               type="text"
               value={formData.slug}
               onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
               required
-              placeholder="my-article-slug"
+              placeholder="moya-statya"
             />
           </div>
 
@@ -232,7 +234,12 @@ export default function EditPostPage() {
             <label>Обложка</label>
             {formData.cover_image && (
               <div className="cover-preview">
-                <img src={`${process.env.NEXT_PUBLIC_API_URL}${formData.cover_image}`} alt="Cover" />
+                <NextImage
+                  src={`${apiUrl}${formData.cover_image}`}
+                  alt="Обложка"
+                  width={700}
+                  height={394}
+                />
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, cover_image: '' })}
@@ -303,7 +310,7 @@ export default function EditPostPage() {
 
           {/* SEO */}
           <div className="form-group">
-            <label htmlFor="seo_title">SEO Title</label>
+            <label htmlFor="seo_title">SEO-заголовок</label>
             <input
               id="seo_title"
               type="text"
@@ -314,7 +321,7 @@ export default function EditPostPage() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="seo_description">SEO Description</label>
+            <label htmlFor="seo_description">SEO-описание</label>
             <textarea
               id="seo_description"
               value={formData.seo_description}

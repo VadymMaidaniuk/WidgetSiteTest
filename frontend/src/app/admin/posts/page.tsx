@@ -5,18 +5,18 @@ import Link from 'next/link'
 import { getAdminPosts, deletePost } from '@/lib/api'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
-import { useRouter } from 'next/navigation'
 
 export default function AdminPostsPage() {
   const [posts, setPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all')
-  const router = useRouter()
-
-  const token = localStorage.getItem('admin_token')
+  const token = typeof window === 'undefined' ? null : window.localStorage.getItem('admin_token')
 
   useEffect(() => {
-    if (!token) return
+    if (!token) {
+      setLoading(false)
+      return
+    }
 
     getAdminPosts(token, 1, 100)
       .then(data => {

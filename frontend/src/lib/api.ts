@@ -1,5 +1,7 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
+export type PostStatus = 'draft' | 'published'
+
 export interface Post {
   id: number
   title: string
@@ -9,7 +11,9 @@ export interface Post {
   cover_image: string | null
   seo_title: string | null
   seo_description: string | null
-  status: string
+  category_id: number | null
+  tag_ids?: number[] | null
+  status: PostStatus
   published_at: string | null
   created_at: string
   updated_at: string
@@ -62,7 +66,7 @@ export async function getPosts(
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch posts')
+    throw new Error('Не удалось загрузить статьи')
   }
   
   return res.json()
@@ -74,7 +78,7 @@ export async function getPost(slug: string): Promise<Post> {
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch post')
+    throw new Error('Не удалось загрузить статью')
   }
   
   return res.json()
@@ -86,7 +90,7 @@ export async function getCategories(): Promise<Category[]> {
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch categories')
+    throw new Error('Не удалось загрузить категории')
   }
   
   return res.json()
@@ -98,7 +102,7 @@ export async function getTags(): Promise<Tag[]> {
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch tags')
+    throw new Error('Не удалось загрузить теги')
   }
   
   return res.json()
@@ -117,7 +121,7 @@ export async function login(email: string, password: string): Promise<{ access_t
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Login failed')
+    throw new Error(error.detail || 'Не удалось выполнить вход')
   }
   
   return res.json()
@@ -131,13 +135,13 @@ export async function getCurrentUser(token: string) {
   })
   
   if (!res.ok) {
-    throw new Error('Not authenticated')
+    throw new Error('Требуется авторизация')
   }
   
   return res.json()
 }
 
-export async function getAdminPosts(token: string, page = 1, pageSize = 10, status?: string): Promise<PostListResponse> {
+export async function getAdminPosts(token: string, page = 1, pageSize = 10, status?: PostStatus): Promise<PostListResponse> {
   const params = new URLSearchParams({
     page: page.toString(),
     page_size: pageSize.toString(),
@@ -152,7 +156,7 @@ export async function getAdminPosts(token: string, page = 1, pageSize = 10, stat
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch posts')
+    throw new Error('Не удалось загрузить статьи')
   }
   
   return res.json()
@@ -166,7 +170,7 @@ export async function getAdminPost(token: string, postId: number): Promise<Post>
   })
   
   if (!res.ok) {
-    throw new Error('Failed to fetch post')
+    throw new Error('Не удалось загрузить статью')
   }
   
   return res.json()
@@ -184,7 +188,7 @@ export async function createPost(token: string, post: Partial<Post>): Promise<Po
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Failed to create post')
+    throw new Error(error.detail || 'Не удалось создать статью')
   }
   
   return res.json()
@@ -202,7 +206,7 @@ export async function updatePost(token: string, postId: number, post: Partial<Po
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Failed to update post')
+    throw new Error(error.detail || 'Не удалось обновить статью')
   }
   
   return res.json()
@@ -217,7 +221,7 @@ export async function deletePost(token: string, postId: number): Promise<void> {
   })
   
   if (!res.ok) {
-    throw new Error('Failed to delete post')
+    throw new Error('Не удалось удалить статью')
   }
 }
 
@@ -235,7 +239,7 @@ export async function uploadImage(token: string, file: File): Promise<{ filename
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Failed to upload image')
+    throw new Error(error.detail || 'Не удалось загрузить изображение')
   }
   
   return res.json()
@@ -253,7 +257,7 @@ export async function createCategory(token: string, category: { name: string; sl
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Failed to create category')
+    throw new Error(error.detail || 'Не удалось создать категорию')
   }
   
   return res.json()
@@ -268,7 +272,7 @@ export async function deleteCategory(token: string, categoryId: number): Promise
   })
   
   if (!res.ok) {
-    throw new Error('Failed to delete category')
+    throw new Error('Не удалось удалить категорию')
   }
 }
 
@@ -284,7 +288,7 @@ export async function createTag(token: string, tag: { name: string; slug: string
   
   if (!res.ok) {
     const error = await res.json()
-    throw new Error(error.detail || 'Failed to create tag')
+    throw new Error(error.detail || 'Не удалось создать тег')
   }
   
   return res.json()
@@ -299,6 +303,6 @@ export async function deleteTag(token: string, tagId: number): Promise<void> {
   })
   
   if (!res.ok) {
-    throw new Error('Failed to delete tag')
+    throw new Error('Не удалось удалить тег')
   }
 }
