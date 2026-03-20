@@ -5,7 +5,7 @@ import PageIntro from '@/components/PageIntro'
 export const metadata: Metadata = {
   title: 'FAQ',
   description:
-    'Короткие ответы на самые частые вопросы о датчиках Atlas, шлюзах, CSV-выгрузках и поддержке.',
+    'Short answers to common questions about Atlas sensors, gateways, CSV exports, and support.',
 }
 
 export default function FaqPage() {
@@ -13,63 +13,62 @@ export default function FaqPage() {
     <>
       <PageIntro
         eyebrow="FAQ"
-        title="Частые вопросы"
-        description="FAQ полезен для коротких factual retrieval-запросов. Ответы ссылаются на другие страницы, но сформулированы компактно."
+        title="Frequently asked questions"
+        description="The FAQ page is useful for short factual retrieval prompts. The answers point to other pages, but remain compact and direct."
         crumbs={[
-          { label: 'Главная', href: '/' },
+          { label: 'Home', href: '/' },
           { label: 'FAQ' },
         ]}
-        meta={['BLE', 'CSV', 'SLA', '120 датчиков']}
+        meta={['BLE', 'CSV', 'SLA', '120 sensors']}
       />
 
       <div className="article-stack">
         <article className="article">
           <div className="faq-item">
-            <h3>Нужен ли интернет каждому датчику?</h3>
+            <h3>Does every sensor need internet access?</h3>
             <p>
-              Нет. Интернет нужен только шлюзу Dock Gateway One. Датчики AMS-20 и Beacon Tag
-              передают данные по Bluetooth Low Energy.
+              No. Internet access is required only for the Dock Gateway One gateway. AMS-20 sensors
+              and Beacon Tag devices send data over Bluetooth Low Energy.
             </p>
           </div>
 
           <div className="faq-item">
-            <h3>Сколько устройств можно подключить к одному шлюзу?</h3>
+            <h3>How many devices can be connected to one gateway?</h3>
             <p>
-              Один Dock Gateway One обслуживает до 120 устройств. Подробное описание есть на{' '}
+              One Dock Gateway One supports up to 120 devices. Full details are listed on the{' '}
               <Link href="/catalog" className="link-inline">
-                странице каталога
+                catalog page
               </Link>
               .
             </p>
           </div>
 
           <div className="faq-item">
-            <h3>Во сколько создается ежедневная CSV-выгрузка?</h3>
+            <h3>What time is the daily CSV export created?</h3>
             <p>
-              Выгрузка стартует ежедневно в 02:30 UTC, а ссылка на файл сохраняется активной 24 часа.
+              The export starts every day at 02:30 UTC, and the file link stays active for 24 hours.
             </p>
           </div>
 
           <div className="faq-item">
-            <h3>Как быстро отвечает поддержка на критический инцидент?</h3>
+            <h3>How fast does support respond to a critical incident?</h3>
             <p>
-              Первая реакция на инциденты уровня critical должна прийти не позже чем через 2 часа в
-              рабочее окно поддержки.
+              The first response to a critical incident should arrive within 2 hours during support hours.
             </p>
           </div>
 
           <div className="faq-item">
-            <h3>Сколько времени хранится история measurements на тарифе Basic?</h3>
+            <h3>How long is measurement history stored on the Basic plan?</h3>
             <p>
-              Для Basic срок хранения readings составляет 180 дней. Для Pro он расширен до 730 дней.
+              On Basic, readings are retained for 180 days. On Pro, that period is extended to 730 days.
             </p>
           </div>
 
           <div className="faq-item">
-            <h3>Что делать, если устройство не появилось после установки?</h3>
+            <h3>What should I do if the device does not appear after installation?</h3>
             <p>
-              Проверьте питание шлюза, расстояние до датчика и повторите pairing. Если нужно,
-              удерживайте reset на шлюзе 7 секунд и выполните первичную синхронизацию заново.
+              Check gateway power, sensor distance, and repeat the pairing process. If needed, hold
+              reset on the gateway for 7 seconds and run the initial sync again.
             </p>
           </div>
         </article>

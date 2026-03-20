@@ -3,9 +3,9 @@ import PageIntro from '@/components/PageIntro'
 import { catalogItems } from '@/lib/site-data'
 
 export const metadata: Metadata = {
-  title: 'Каталог устройств',
+  title: 'Catalog',
   description:
-    'Каталог фиктивных устройств Atlas Widget Labs с артикулами, питанием, связью и гарантийными сроками.',
+    'Catalog of fictional Atlas Widget Labs devices with model numbers, power requirements, connectivity, and warranty periods.',
 }
 
 export default function CatalogPage() {
@@ -13,38 +13,37 @@ export default function CatalogPage() {
     <>
       <PageIntro
         eyebrow="Catalog"
-        title="Каталог устройств"
-        description="На этой странице собраны модели Atlas, их артикулы и контрольные характеристики. Для RAG здесь особенно полезны таблицы, числовые ограничения и различающиеся сроки гарантии."
+        title="Device catalog"
+        description="This page lists Atlas models, model numbers, and reference specifications. For RAG testing, the most useful elements here are the table, the numeric limits, and the differing warranty periods."
         crumbs={[
-          { label: 'Главная', href: '/' },
-          { label: 'Каталог' },
+          { label: 'Home', href: '/' },
+          { label: 'Catalog' },
         ]}
-        meta={['3 устройства', '2 вида батарей', '1 шлюз на 120 датчиков']}
+        meta={['3 devices', '2 battery types', '1 gateway for 120 sensors']}
       />
 
       <div className="article-stack">
         <article className="article">
-          <h2>Короткое описание линейки</h2>
+          <h2>Short product line overview</h2>
           <p>
-            Линейка Atlas состоит из мини-датчиков, шлюза для передачи данных и компактных меток
-            для отслеживания объектов. Устройства намеренно различаются по питанию, дальности и
-            режиму применения, чтобы на этой странице было удобно тестировать retrieval по
-            конкретным атрибутам.
+            The Atlas lineup includes mini sensors, a data gateway, and compact tracking tags. The
+            devices intentionally differ in power model, range, and usage pattern so this page is
+            useful for retrieval tests based on concrete attributes.
           </p>
         </article>
 
         <article className="article">
-          <h2>Сводная таблица</h2>
+          <h2>Summary table</h2>
           <div className="data-table-wrap">
             <table className="data-table">
               <thead>
                 <tr>
-                  <th>Устройство</th>
-                  <th>Модель</th>
-                  <th>Питание</th>
-                  <th>Связь</th>
-                  <th>Лимиты</th>
-                  <th>Гарантия</th>
+                  <th>Device</th>
+                  <th>Model</th>
+                  <th>Power</th>
+                  <th>Connectivity</th>
+                  <th>Limits</th>
+                  <th>Warranty</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,12 +67,12 @@ export default function CatalogPage() {
         </article>
 
         <article className="article">
-          <h2>Что важно помнить</h2>
+          <h2>Important notes</h2>
           <ul className="detail-list">
-            <li>Единственное устройство с проводным питанием — Dock Gateway One модели DG-100.</li>
-            <li>Только шлюз подключается к интернету; датчики и метки общаются через BLE.</li>
-            <li>Максимум в 120 устройств относится к одному шлюзу, а не ко всему workspace.</li>
-            <li>Самая длинная гарантия в каталоге — 24 месяца; у Beacon Tag она сокращена до 12 месяцев.</li>
+            <li>The only mains-powered device is Dock Gateway One, model DG-100.</li>
+            <li>Only the gateway connects to the internet; sensors and tags communicate over BLE.</li>
+            <li>The 120-device limit applies to one gateway, not to the whole workspace.</li>
+            <li>The longest warranty in the catalog is 24 months; Beacon Tag has only 12 months.</li>
           </ul>
         </article>
       </div>

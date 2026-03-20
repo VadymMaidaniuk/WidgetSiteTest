@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import PageIntro from '@/components/PageIntro'
 
 export const metadata: Metadata = {
-  title: 'Контакты',
+  title: 'Contact',
   description:
-    'Контакты поддержки Atlas Widget Labs, часы работы, адрес офиса и SLA по заявкам.',
+    'Support contacts for Atlas Widget Labs, including working hours, office address, and request SLA.',
 }
 
 export default function ContactPage() {
@@ -12,33 +12,33 @@ export default function ContactPage() {
     <>
       <PageIntro
         eyebrow="Contact"
-        title="Контакты"
-        description="Контактная страница содержит email, часы поддержки, офисный адрес и быстрые правила эскалации инцидентов. Она полезна для тестов на точное извлечение коротких фактов."
+        title="Contact"
+        description="The contact page contains email addresses, support hours, the office address, and quick escalation rules. It is useful for tests that require exact extraction of short factual details."
         crumbs={[
-          { label: 'Главная', href: '/' },
-          { label: 'Контакты' },
+          { label: 'Home', href: '/' },
+          { label: 'Contact' },
         ]}
-        meta={['support@atlaswidgets.test', '09:00-18:00 EET', 'critical reply до 2 часов']}
+        meta={['support@atlaswidgets.test', '09:00-18:00 EET', 'critical reply within 2 hours']}
       />
 
       <section className="section contact-grid">
         <article className="panel">
-          <h2>Каналы связи</h2>
+          <h2>Contact channels</h2>
           <ul className="contact-list">
-            <li><span className="table-highlight">Поддержка:</span> support@atlaswidgets.test</li>
-            <li><span className="table-highlight">Продажи:</span> sales@atlaswidgets.test</li>
-            <li><span className="table-highlight">Партнерства:</span> partners@atlaswidgets.test</li>
-            <li><span className="table-highlight">Демо-звонки:</span> вторник и четверг, 14:00-16:00 EET</li>
+            <li><span className="table-highlight">Support:</span> support@atlaswidgets.test</li>
+            <li><span className="table-highlight">Sales:</span> sales@atlaswidgets.test</li>
+            <li><span className="table-highlight">Partnerships:</span> partners@atlaswidgets.test</li>
+            <li><span className="table-highlight">Demo calls:</span> Tuesday and Thursday, 14:00-16:00 EET</li>
           </ul>
         </article>
 
         <article className="panel">
-          <h2>Поддержка и SLA</h2>
+          <h2>Support and SLA</h2>
           <ul className="contact-list">
-            <li>Рабочее окно поддержки: понедельник-пятница, 09:00-18:00 EET.</li>
-            <li>Critical incident: первый ответ до 2 часов.</li>
-            <li>Standard request: первый ответ в течение 1 рабочего дня.</li>
-            <li>Office address: Подольская набережная, 18, Киев, 04070.</li>
+            <li>Support hours: Monday through Friday, 09:00-18:00 EET.</li>
+            <li>Critical incident: first response within 2 hours.</li>
+            <li>Standard request: first response within 1 business day.</li>
+            <li>Office address: Podilska Naberezhna 18, Kyiv, 04070.</li>
           </ul>
         </article>
       </section>

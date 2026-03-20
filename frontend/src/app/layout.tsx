@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Atlas Widget Docs',
   },
   description:
-    'Простой многостраничный knowledge-base сайт для тестирования RAG-парсеров и качества извлечения контента.',
+    'A simple multi-page knowledge base site for testing RAG parsers and content extraction quality.',
 }
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body className={`${manrope.variable} ${ibmPlexMono.variable}`}>
         <div className="site-backdrop" aria-hidden="true" />
         <div className="site-shell">

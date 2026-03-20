@@ -3,15 +3,15 @@ import Link from 'next/link'
 import PageIntro from '@/components/PageIntro'
 
 export const metadata: Metadata = {
-  title: 'О проекте',
+  title: 'About',
   description:
-    'Описание тестового сайта Atlas Widget Docs и принципов подготовки контента для RAG-проверок.',
+    'Description of the Atlas Widget Docs test site and the principles used to prepare RAG-friendly content.',
 }
 
 const milestones = [
-  '15 января 2024: Atlas Widget Labs запустила внутреннюю базу документации для полевых устройств.',
-  '12 сентября 2025: команда выделила отдельный демо-набор страниц для тестирования crawl и retrieval.',
-  '20 марта 2026: текущая версия сайта переведена на полностью статический Next.js без backend-зависимостей.',
+  'January 15, 2024: Atlas Widget Labs launched an internal documentation base for field devices.',
+  'September 12, 2025: the team created a dedicated demo page set for crawl and retrieval testing.',
+  'March 20, 2026: the current version of the site was moved to fully static Next.js with no backend dependency.',
 ]
 
 export default function AboutPage() {
@@ -19,52 +19,52 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="Project Brief"
-        title="О проекте"
-        description="Atlas Widget Docs создан как маленький, предсказуемый knowledge-base сайт. Его задача не продавать продукт, а давать чистый контент для тестирования парсинга, индексации и поиска по фрагментам."
+        title="About the project"
+        description="Atlas Widget Docs is a small, predictable knowledge-base site. Its purpose is not to sell a product, but to provide clean content for testing parsing, indexing, and fragment-based retrieval."
         crumbs={[
-          { label: 'Главная', href: '/' },
-          { label: 'О проекте' },
+          { label: 'Home', href: '/' },
+          { label: 'About' },
         ]}
-        meta={['8 страниц', 'статический Next.js', 'без API и форм']}
+        meta={['8 pages', 'static Next.js', 'no API or forms']}
       />
 
       <div className="article-stack">
         <article className="article">
-          <h2>Что именно проверяет сайт</h2>
+          <h2>What the site is designed to test</h2>
           <p>
-            Контент специально разнесен по нескольким URL, чтобы RAG-система не опиралась на одну
-            длинную страницу. На <Link href="/catalog" className="link-inline">странице каталога</Link>{' '}
-            лежат характеристики оборудования, на{' '}
-            <Link href="/guides/integrations" className="link-inline">странице интеграций</Link> —
-            ограничения API и webhook-события, а на{' '}
-            <Link href="/policies/data-retention" className="link-inline">policy-странице</Link> —
-            сроки хранения и удаления данных.
+            The content is intentionally split across multiple URLs so a RAG system cannot rely on
+            one long page. The <Link href="/catalog" className="link-inline">catalog page</Link>{' '}
+            contains hardware specifications, the{' '}
+            <Link href="/guides/integrations" className="link-inline">integrations page</Link>{' '}
+            contains API limits and webhook events, and the{' '}
+            <Link href="/policies/data-retention" className="link-inline">policy page</Link>{' '}
+            contains retention and deletion rules.
           </p>
           <ul className="detail-list">
-            <li>Есть обычные абзацы, списки, таблицы и breadcrumb-навигация.</li>
-            <li>Часть фактов выражена словами, часть числами и кодами моделей.</li>
-            <li>Некоторые ответы требуют найти страницу по смыслу, а не по точному совпадению слов.</li>
-            <li>В контенте используются и русский текст, и английские технические термины.</li>
+            <li>There are regular paragraphs, lists, tables, and breadcrumb navigation.</li>
+            <li>Some facts are written as prose, others as numbers, codes, and model names.</li>
+            <li>Some answers require semantic page selection, not just exact keyword matches.</li>
+            <li>The content is written in plain English with technical product terminology.</li>
           </ul>
         </article>
 
         <article className="article">
-          <h2>Контентные правила</h2>
+          <h2>Content rules</h2>
           <p>
-            Этот fixture намеренно простой: без pop-up элементов, без клиентских запросов и без
-            скрытого текста. Если парсер видит HTML-страницу целиком, он должен получить всю
-            полезную информацию.
+            This fixture is intentionally simple: no pop-ups, no client-side data fetching, and no
+            hidden text. If the parser can read the HTML page, it should be able to capture all of
+            the useful information.
           </p>
           <ul className="detail-list">
-            <li>Один URL содержит одну тему и один основной заголовок H1.</li>
-            <li>Ключевые сущности повторяются ограниченно, чтобы было легче отслеживать grounding.</li>
-            <li>Адреса, email и домены используют тестовые значения вроде <code>.test</code>.</li>
-            <li>Навигация остается плоской: главная, 2 guide-страницы, 1 policy-страница, FAQ и контакты.</li>
+            <li>Each URL covers one topic and has a single primary H1 heading.</li>
+            <li>Key entities repeat in a controlled way so grounding is easier to inspect.</li>
+            <li>Addresses, email accounts, and domains use test values such as <code>.test</code>.</li>
+            <li>The navigation remains flat: home, 2 guide pages, 1 policy page, FAQ, and contact.</li>
           </ul>
         </article>
 
         <article className="article">
-          <h2>Хронология версии</h2>
+          <h2>Version timeline</h2>
           <ul className="timeline">
             {milestones.map(item => (
               <li key={item}>{item}</li>

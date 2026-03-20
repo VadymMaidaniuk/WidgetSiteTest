@@ -9,10 +9,10 @@ export default function Header() {
           <span className="brand-mark">AW</span>
           <span className="brand-copy">
             <span className="brand-title">Atlas Widget Docs</span>
-            <span className="brand-subtitle">Тестовый сайт для RAG и parser checks</span>
+            <span className="brand-subtitle">Static fixture for RAG and parser checks</span>
           </span>
         </Link>
-        <nav aria-label="Основная навигация">
+        <nav aria-label="Main navigation">
           <ul className="nav-list">
             {navigation.map(item => (
               <li key={item.href}>

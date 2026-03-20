@@ -8,8 +8,8 @@ export default function Footer() {
         <div>
           <p className="brand-title">Atlas Widget Docs</p>
           <p className="footer-note">
-            Полностью статический сайт для деплоя на Vercel. Контент подготовлен так, чтобы
-            проверять crawl depth, chunking, таблицы и точные ответы по фактам.
+            A fully static site for Vercel deployment. The content is designed to test crawl depth,
+            chunking, tables, and exact fact retrieval.
           </p>
         </div>
         <div className="footer-links">

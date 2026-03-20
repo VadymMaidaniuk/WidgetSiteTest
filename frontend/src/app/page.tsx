@@ -4,27 +4,27 @@ import { pageDirectory, sampleQueries } from '@/lib/site-data'
 const keyMetrics = [
   {
     value: '8',
-    label: 'Статических страниц с уникальными URL',
+    label: 'Static pages with unique URLs',
   },
   {
     value: '3',
-    label: 'Таблицы со структурированными данными',
+    label: 'Tables with structured data',
   },
   {
     value: '0',
-    label: 'Зависимостей от backend или API',
+    label: 'Backend or API dependencies',
   },
   {
-    value: 'RU/EN',
-    label: 'Основной язык RU, технические термины на EN',
+    value: 'EN',
+    label: 'Primary language for all public content',
   },
 ]
 
 const crawlNotes = [
-  'Все ключевые факты находятся в обычном HTML-тексте, списках и таблицах.',
-  'На сайте нет форм, авторизации, динамической подгрузки или клиентских API-запросов.',
-  'Внутренние ссылки соединяют страницы так, чтобы можно было тестировать обход и релевантность.',
-  'Факты распределены по разным страницам: контакты, сроки хранения, лимиты API и параметры устройств.',
+  'All key facts live in regular HTML text, lists, and tables.',
+  'The site has no forms, authentication, dynamic loading, or client-side API requests.',
+  'Internal links connect the pages so you can test crawl behavior and retrieval relevance.',
+  'Facts are split across different pages: contacts, retention rules, API limits, and device details.',
 ]
 
 export default function HomePage() {
@@ -35,20 +35,20 @@ export default function HomePage() {
           <p className="eyebrow">RAG Test Fixture</p>
           <h1>Atlas Widget Docs</h1>
           <p className="lead">
-            Небольшой сайт на 8 страниц для проверки того, как ваш парсер обходит ссылки,
-            извлекает таблицы, сохраняет заголовки и отвечает на вопросы по конкретным фактам.
+            A compact 8-page site for testing how your parser follows links, extracts tables,
+            preserves headings, and answers questions based on exact facts.
           </p>
           <div className="button-row">
             <Link href="/catalog" className="button button-primary">
-              Открыть каталог
+              Open catalog
             </Link>
             <Link href="/policies/data-retention" className="button button-secondary">
-              Проверить policy-страницу
+              Open policy page
             </Link>
           </div>
         </div>
         <div className="hero-panel">
-          <h2>Что удобно тестировать на этом сайте</h2>
+          <h2>What this site is good for testing</h2>
           <ul className="check-list">
             {crawlNotes.map(note => (
               <li key={note}>{note}</li>
@@ -70,10 +70,10 @@ export default function HomePage() {
 
       <section className="section">
         <div className="section-heading">
-          <h2>Карта страниц</h2>
+          <h2>Page map</h2>
           <p>
-            Ниже собраны все основные URL. Каждая страница содержит отдельный набор фактов:
-            характеристики устройств, правила хранения данных, лимиты API и контакты службы поддержки.
+            Below is the full page directory. Each page contains a distinct set of facts: device
+            specifications, data retention rules, API limits, and support contacts.
           </p>
         </div>
         <div className="card-grid">
@@ -94,7 +94,7 @@ export default function HomePage() {
 
       <section className="section two-column">
         <article className="panel">
-          <h2>Примеры запросов для RAG</h2>
+          <h2>Sample RAG queries</h2>
           <ul className="faq-list">
             {sampleQueries.map(query => (
               <li key={query}>{query}</li>
@@ -102,15 +102,15 @@ export default function HomePage() {
           </ul>
         </article>
         <article className="panel">
-          <h2>Как использовать этот fixture</h2>
+          <h2>How to use this fixture</h2>
           <p>
-            Задеплойте папку <code>frontend</code> на Vercel, отдайте публичный URL в ваш pipeline,
-            затем задавайте вопросы, которые требуют находить точные числа, даты, адреса, таблицы и
-            внутренние ссылки.
+            Deploy the <code>frontend</code> folder to Vercel, pass the public URL into your
+            pipeline, then ask questions that require exact numbers, dates, addresses, tables, and
+            internal links.
           </p>
           <p>
-            Если парсер пропускает структуру, он обычно теряет детали вроде <code>120 устройств на шлюз</code>,
-            <code>180 дней хранения</code> или расписание выгрузки <code>02:30 UTC</code>.
+            If the parser misses structure, it usually loses details like <code>120 devices per gateway</code>,
+            <code>180 days of retention</code>, or the export schedule at <code>02:30 UTC</code>.
           </p>
         </article>
       </section>
