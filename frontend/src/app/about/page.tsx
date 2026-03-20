@@ -1,97 +1,77 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import PageIntro from '@/components/PageIntro'
+
+export const metadata: Metadata = {
+  title: 'О проекте',
+  description:
+    'Описание тестового сайта Atlas Widget Docs и принципов подготовки контента для RAG-проверок.',
+}
+
+const milestones = [
+  '15 января 2024: Atlas Widget Labs запустила внутреннюю базу документации для полевых устройств.',
+  '12 сентября 2025: команда выделила отдельный демо-набор страниц для тестирования crawl и retrieval.',
+  '20 марта 2026: текущая версия сайта переведена на полностью статический Next.js без backend-зависимостей.',
+]
 
 export default function AboutPage() {
   return (
     <>
-      <Header />
-      <main>
-        <section className="hero" style={{ minHeight: '50vh', paddingTop: '10rem' }}>
-          <div className="hero-content">
-            <h1>О <span className="gradient-text">CryptoMaster</span></h1>
-            <p className="hero-description">
-              Познакомься с командой, которая обучает криптовалютам и трейдингу
-            </p>
-          </div>
-        </section>
+      <PageIntro
+        eyebrow="Project Brief"
+        title="О проекте"
+        description="Atlas Widget Docs создан как маленький, предсказуемый knowledge-base сайт. Его задача не продавать продукт, а давать чистый контент для тестирования парсинга, индексации и поиска по фрагментам."
+        crumbs={[
+          { label: 'Главная', href: '/' },
+          { label: 'О проекте' },
+        ]}
+        meta={['8 страниц', 'статический Next.js', 'без API и форм']}
+      />
 
-        <section className="section">
-          <div className="mentor-section">
-            <div className="mentor-image">
-              <div className="image-placeholder">👨‍💼</div>
-            </div>
-            <div className="mentor-content">
-              <p className="subtitle">Основатель & Главный ментор</p>
-              <h2>Лавриненко Святослав</h2>
-              <p>
-                Приветствую! Я криптоинвестор и трейдер с 2017 года. За это время я прошёл путь от
-                новичка, потерявшего первые деньги на хайпах, до профессионала, управляющего портфелем.
-              </p>
-              <p>
-                CryptoMaster Academy был основан с одной целью — помочь людям избежать моих ошибок
-                и научить зарабатывать на криптовалютах системно и безопасно.
-              </p>
+      <div className="article-stack">
+        <article className="article">
+          <h2>Что именно проверяет сайт</h2>
+          <p>
+            Контент специально разнесен по нескольким URL, чтобы RAG-система не опиралась на одну
+            длинную страницу. На <Link href="/catalog" className="link-inline">странице каталога</Link>{' '}
+            лежат характеристики оборудования, на{' '}
+            <Link href="/guides/integrations" className="link-inline">странице интеграций</Link> —
+            ограничения API и webhook-события, а на{' '}
+            <Link href="/policies/data-retention" className="link-inline">policy-странице</Link> —
+            сроки хранения и удаления данных.
+          </p>
+          <ul className="detail-list">
+            <li>Есть обычные абзацы, списки, таблицы и breadcrumb-навигация.</li>
+            <li>Часть фактов выражена словами, часть числами и кодами моделей.</li>
+            <li>Некоторые ответы требуют найти страницу по смыслу, а не по точному совпадению слов.</li>
+            <li>В контенте используются и русский текст, и английские технические термины.</li>
+          </ul>
+        </article>
 
-              <div className="mentor-achievements">
-                <div className="achievement">
-                  <div className="achievement-number">7+</div>
-                  <div className="achievement-label">Лет в крипте</div>
-                </div>
-                <div className="achievement">
-                  <div className="achievement-number">$2M+</div>
-                  <div className="achievement-label">Личный портфель</div>
-                </div>
-                <div className="achievement">
-                  <div className="achievement-number">12,500+</div>
-                  <div className="achievement-label">Студентов</div>
-                </div>
-                <div className="achievement">
-                  <div className="achievement-number">94%</div>
-                  <div className="achievement-label">Позитивных отзывов</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <article className="article">
+          <h2>Контентные правила</h2>
+          <p>
+            Этот fixture намеренно простой: без pop-up элементов, без клиентских запросов и без
+            скрытого текста. Если парсер видит HTML-страницу целиком, он должен получить всю
+            полезную информацию.
+          </p>
+          <ul className="detail-list">
+            <li>Один URL содержит одну тему и один основной заголовок H1.</li>
+            <li>Ключевые сущности повторяются ограниченно, чтобы было легче отслеживать grounding.</li>
+            <li>Адреса, email и домены используют тестовые значения вроде <code>.test</code>.</li>
+            <li>Навигация остается плоской: главная, 2 guide-страницы, 1 policy-страница, FAQ и контакты.</li>
+          </ul>
+        </article>
 
-        <section className="section" style={{ background: 'rgba(139, 92, 246, 0.05)' }}>
-          <div className="section-header">
-            <h2 className="section-title">Наши <span className="gradient-text">принципы</span></h2>
-            <p className="section-subtitle">То, во что мы верим и чему учим</p>
-          </div>
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">🎯</div>
-              <h3>Практика важнее теории</h3>
-              <p>Никакой воды. Только реальные стратегии, которые работают на живом рынке.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🔒</div>
-              <h3>Безопасность прежде всего</h3>
-              <p>Сначала учим защищать капитал, потом — зарабатывать. Риск-менеджмент в основе всего.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🤝</div>
-              <h3>Честность</h3>
-              <p>Мы не обещаем миллионы за неделю. Мы учим зарабатывать стабильно и системно.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">👥</div>
-              <h3>Сообщество</h3>
-              <p>Один в поле не воин. Наши студенты поддерживают друг друга и растут вместе.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="cta-section">
-          <div className="cta-content">
-            <h2>Готов <span className="gradient-text">присоединиться</span>?</h2>
-            <p>Начни свой путь в мире криптовалют с надёжной командой экспертов</p>
-            <a href="/blog" className="btn btn-gold">📚 Читать блог</a>
-          </div>
-        </section>
-      </main>
-      <Footer />
+        <article className="article">
+          <h2>Хронология версии</h2>
+          <ul className="timeline">
+            {milestones.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </div>
     </>
   )
 }

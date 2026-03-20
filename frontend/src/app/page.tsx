@@ -1,113 +1,119 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import PostCard from '@/components/PostCard'
-import { getPosts, getCategories } from '@/lib/api'
+import Link from 'next/link'
+import { pageDirectory, sampleQueries } from '@/lib/site-data'
 
-export default async function HomePage() {
-  const [posts, categories] = await Promise.all([
-    getPosts(1, 3).catch(() => ({
-      posts: [],
-      total: 0,
-      page: 1,
-      page_size: 3,
-      total_pages: 0,
-    })),
-    getCategories().catch(() => []),
-  ])
+const keyMetrics = [
+  {
+    value: '8',
+    label: 'Статических страниц с уникальными URL',
+  },
+  {
+    value: '3',
+    label: 'Таблицы со структурированными данными',
+  },
+  {
+    value: '0',
+    label: 'Зависимостей от backend или API',
+  },
+  {
+    value: 'RU/EN',
+    label: 'Основной язык RU, технические термины на EN',
+  },
+]
 
+const crawlNotes = [
+  'Все ключевые факты находятся в обычном HTML-тексте, списках и таблицах.',
+  'На сайте нет форм, авторизации, динамической подгрузки или клиентских API-запросов.',
+  'Внутренние ссылки соединяют страницы так, чтобы можно было тестировать обход и релевантность.',
+  'Факты распределены по разным страницам: контакты, сроки хранения, лимиты API и параметры устройств.',
+]
+
+export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
-        {/* Hero Section */}
-        <section className="hero">
-          <div className="hero-content">
-            <span className="hero-badge">
-              <span className="pulse"></span>
-              🔥 Новые статьи каждую неделю
-            </span>
-            <h1>CryptoMaster <span className="gradient-text">Блог</span></h1>
-            <p className="hero-description">
-              Практические статьи о криптовалютах, трейдинге и DeFi от экспертов рынка
-            </p>
-            <div className="hero-buttons">
-              <a href="/blog" className="btn btn-primary">
-                📚 Читать блог
-              </a>
-              <a href="/admin" className="btn btn-secondary">
-                🔐 Админ-панель
-              </a>
-            </div>
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">RAG Test Fixture</p>
+          <h1>Atlas Widget Docs</h1>
+          <p className="lead">
+            Небольшой сайт на 8 страниц для проверки того, как ваш парсер обходит ссылки,
+            извлекает таблицы, сохраняет заголовки и отвечает на вопросы по конкретным фактам.
+          </p>
+          <div className="button-row">
+            <Link href="/catalog" className="button button-primary">
+              Открыть каталог
+            </Link>
+            <Link href="/policies/data-retention" className="button button-secondary">
+              Проверить policy-страницу
+            </Link>
           </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="stats">
-          <div className="stat-card">
-            <div className="stat-number">{posts.total}+</div>
-            <div className="stat-label">Статей</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-number">{categories.length}</div>
-            <div className="stat-label">Категорий</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-number">200+</div>
-            <div className="stat-label">Часов контента</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-number">94%</div>
-            <div className="stat-label">Довольных читателей</div>
-          </div>
-        </section>
-
-        {/* Latest Posts */}
-        <section className="section">
-          <div className="section-header">
-            <h2 className="section-title">Последние <span className="gradient-text">статьи</span></h2>
-            <p className="section-subtitle">Свежие материалы о криптовалютах и трейдинге</p>
-          </div>
-          <div className="courses-grid">
-            {posts.posts.map(post => (
-              <PostCard key={post.id} post={post} />
+        </div>
+        <div className="hero-panel">
+          <h2>Что удобно тестировать на этом сайте</h2>
+          <ul className="check-list">
+            {crawlNotes.map(note => (
+              <li key={note}>{note}</li>
             ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <a href="/blog" className="btn btn-primary">Все статьи →</a>
-          </div>
-        </section>
+          </ul>
+        </div>
+      </section>
 
-        {/* Categories */}
-        <section className="section" style={{ background: 'rgba(139, 92, 246, 0.05)' }}>
-          <div className="section-header">
-            <h2 className="section-title">Категории</h2>
-            <p className="section-subtitle">Выберите интересующую вас тему</p>
-          </div>
-          <div className="features-grid">
-            {categories.map(category => (
-              <a 
-                key={category.id} 
-                href={`/blog?category=${category.slug}`}
-                className="feature-card"
-                style={{ textAlign: 'center', textDecoration: 'none' }}
-              >
-                <div className="feature-icon">📁</div>
-                <h3>{category.name}</h3>
-              </a>
+      <section className="section">
+        <div className="stats-grid">
+          {keyMetrics.map(metric => (
+            <article key={metric.label} className="info-card">
+              <p className="stat-value">{metric.value}</p>
+              <p className="stat-label">{metric.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-heading">
+          <h2>Карта страниц</h2>
+          <p>
+            Ниже собраны все основные URL. Каждая страница содержит отдельный набор фактов:
+            характеристики устройств, правила хранения данных, лимиты API и контакты службы поддержки.
+          </p>
+        </div>
+        <div className="card-grid">
+          {pageDirectory.map(page => (
+            <Link key={page.href} href={page.href} className="link-card">
+              <span className="card-tag">{page.tag}</span>
+              <h3>{page.title}</h3>
+              <p>{page.description}</p>
+              <ul className="mini-list">
+                {page.highlights.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section two-column">
+        <article className="panel">
+          <h2>Примеры запросов для RAG</h2>
+          <ul className="faq-list">
+            {sampleQueries.map(query => (
+              <li key={query}>{query}</li>
             ))}
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="cta-section">
-          <div className="cta-content">
-            <h2>Готов начать <span className="gradient-text">обучение</span>?</h2>
-            <p>Присоединяйся к 12,500+ успешных студентов и начни свой путь к финансовой свободе</p>
-            <a href="/blog" className="btn btn-gold">🚀 Читать блог</a>
-          </div>
-        </section>
-      </main>
-      <Footer />
+          </ul>
+        </article>
+        <article className="panel">
+          <h2>Как использовать этот fixture</h2>
+          <p>
+            Задеплойте папку <code>frontend</code> на Vercel, отдайте публичный URL в ваш pipeline,
+            затем задавайте вопросы, которые требуют находить точные числа, даты, адреса, таблицы и
+            внутренние ссылки.
+          </p>
+          <p>
+            Если парсер пропускает структуру, он обычно теряет детали вроде <code>120 устройств на шлюз</code>,
+            <code>180 дней хранения</code> или расписание выгрузки <code>02:30 UTC</code>.
+          </p>
+        </article>
+      </section>
     </>
   )
 }

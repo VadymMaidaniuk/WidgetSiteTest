@@ -1,21 +1,27 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { IBM_Plex_Mono, Manrope } from 'next/font/google'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import './globals.css'
 
-const inter = Inter({ 
+const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter'
+  variable: '--font-sans',
 })
 
-const poppins = Poppins({ 
-  weight: ['600', '700', '800', '900'],
-  subsets: ['latin'],
-  variable: '--font-poppins'
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
-  title: 'CryptoMaster Academy — Блог о криптовалютах и трейдинге',
-  description: 'Практические курсы и статьи о криптовалютах, трейдинге и DeFi от экспертов рынка',
+  title: {
+    default: 'Atlas Widget Docs',
+    template: '%s | Atlas Widget Docs',
+  },
+  description:
+    'Простой многостраничный knowledge-base сайт для тестирования RAG-парсеров и качества извлечения контента.',
 }
 
 export default function RootLayout({
@@ -25,8 +31,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${inter.variable} ${poppins.variable} font-sans`}>
-        {children}
+      <body className={`${manrope.variable} ${ibmPlexMono.variable}`}>
+        <div className="site-backdrop" aria-hidden="true" />
+        <div className="site-shell">
+          <Header />
+          <main className="main-shell">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )

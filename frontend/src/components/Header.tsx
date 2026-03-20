@@ -1,17 +1,26 @@
 import Link from 'next/link'
+import { navigation } from '@/lib/site-data'
 
 export default function Header() {
   return (
     <header className="site-header">
-      <div className="header-content">
-        <Link href="/" className="site-logo">
-          <span className="logo-icon">₿</span> CryptoMaster
+      <div className="shell header-inner">
+        <Link href="/" className="brand" aria-label="Atlas Widget Docs home">
+          <span className="brand-mark">AW</span>
+          <span className="brand-copy">
+            <span className="brand-title">Atlas Widget Docs</span>
+            <span className="brand-subtitle">Тестовый сайт для RAG и parser checks</span>
+          </span>
         </Link>
-        <nav>
-          <ul className="nav-menu">
-            <li><Link href="/">Главная</Link></li>
-            <li><Link href="/blog">Блог</Link></li>
-            <li><Link href="/about">О нас</Link></li>
+        <nav aria-label="Основная навигация">
+          <ul className="nav-list">
+            {navigation.map(item => (
+              <li key={item.href}>
+                <Link href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
