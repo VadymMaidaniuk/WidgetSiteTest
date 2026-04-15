@@ -1,15 +1,15 @@
-﻿# Atlas Widget Docs
+# Atlas Widget Docs
 
-Простой многостраничный сайт для тестирования RAG-парсеров. Проект собран как статический `Next.js`-frontend без backend-зависимостей, чтобы его можно было целиком задеплоить на Vercel.
+A simple multi-page site for testing RAG parsers. The project is built as a static `Next.js` frontend with no backend dependencies, so it can be fully deployed to Vercel.
 
-## Что внутри
+## What's inside
 
-- 8 страниц с разными типами контента: абзацы, списки, таблицы, breadcrumb-навигация.
-- Фиктивные, но стабильные факты: модели устройств, лимиты API, сроки хранения данных, контакты.
-- Внутренние ссылки между страницами, чтобы тестировать crawl depth и релевантность retrieval.
-- `sitemap.xml` и `robots.txt` через App Router.
+- 8 pages with different content types: paragraphs, lists, tables, and breadcrumb navigation.
+- Fictional but stable facts: device models, API limits, data retention periods, and contacts.
+- Internal links between pages to test crawl depth and retrieval relevance.
+- `sitemap.xml` and `robots.txt` via App Router.
 
-Основные страницы:
+Main pages:
 
 - `/`
 - `/about`
@@ -20,7 +20,7 @@
 - `/faq`
 - `/contact`
 
-## Локальный запуск
+## Local run
 
 ```bash
 cd frontend
@@ -28,27 +28,27 @@ npm install
 npm run dev
 ```
 
-После запуска сайт будет доступен на `http://localhost:3000`.
+After startup, the site will be available at `http://localhost:3000`.
 
-## Деплой на Vercel
+## Deploy to Vercel
 
-1. Запушить репозиторий в GitHub.
-2. Подключить репозиторий в Vercel.
-3. Указать `frontend` как `Root Directory`.
-4. Команду сборки оставить стандартной: `npm run build`.
-5. Опционально добавить `NEXT_PUBLIC_SITE_URL`, чтобы `sitemap.xml` и `robots.txt` использовали ваш production URL.
+1. Push the repository to GitHub.
+2. Connect the repository in Vercel.
+3. Set `frontend` as the `Root Directory`.
+4. Keep the default build command: `npm run build`.
+5. Optionally add `NEXT_PUBLIC_SITE_URL` so `sitemap.xml` and `robots.txt` use your production URL.
 
-## Для чего удобно использовать этот сайт
+## What this site is useful for
 
-- Проверять, что парсер корректно обходит внутренние ссылки.
-- Проверять извлечение таблиц и числовых фактов.
-- Проверять grounding по policy-страницам и FAQ.
-- Сравнивать ответы на вопросы вроде:
-  - "Сколько дней хранятся sensor readings на Basic?"
-  - "Во сколько создается CSV-выгрузка?"
-  - "Сколько устройств подключается к одному шлюзу?"
-  - "Какой email у службы поддержки?"
+- Verifying that a parser correctly crawls internal links.
+- Testing extraction of tables and numeric facts.
+- Testing grounding against policy pages and FAQ.
+- Comparing answers to questions like:
+  - "How many days are sensor readings retained on Basic?"
+  - "At what time is the CSV export generated?"
+  - "How many devices can be connected to one gateway?"
+  - "What is the support email address?"
 
-## Примечание по репозиторию
+## Repository note
 
-В репозитории могут оставаться legacy-файлы от старой версии проекта. Для текущего сайта и Vercel-деплоя используется только папка `frontend`.
+Legacy files from an older project version may still remain in the repository. Only the `frontend` folder is used for the current site and Vercel deployment.
